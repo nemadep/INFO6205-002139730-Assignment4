@@ -93,5 +93,5 @@ public class Main {
 	@SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
 	private static final Map<String, Integer> configuration = new HashMap<>();
 	public static Integer threads = 2;
-	public static Integer size = 200000;
+	public static Integer size = 300000;
 }

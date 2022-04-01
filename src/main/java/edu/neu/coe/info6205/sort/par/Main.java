@@ -18,8 +18,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Array Size: " + size);
-		processArgs(args);
-
+//		processArgs(args);
+		
+		if (args != null && args[1] != null)
+			threads = Integer.parseInt(args[1]) ;
 		for (int th = threads; th <= 64; th += th) {
 			System.out.println("thread check: - " + th);
 			ForkJoinPool executer = new ForkJoinPool(th);
@@ -28,7 +30,7 @@ public class Main {
 			int[] array = new int[size];
 			ArrayList<Long> timeList = new ArrayList<>();
 			for (int j = 50; j < 100; j++) {
-				ParSort.cutoff = 500 * (j + 1);
+				ParSort.cutoff = args[0] == null ? 500 : Integer.parseInt(args[0]) * (j + 1);
 				// for (int i = 0; i < array.length; i++) array[i] = random.nextInt(10000000);
 				long time;
 				long startTime = System.currentTimeMillis();
